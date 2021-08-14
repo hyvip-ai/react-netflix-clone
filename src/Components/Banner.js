@@ -19,10 +19,10 @@ const api_key = "b988754cffa2df249c974ac7b1d714e5"
   console.log("asche")
     var tempdata = await fetch(url);
     var res = await data.json();
-    tempdata = res.results[page]
-    setdata(tempdata);
+    var tempdata1 = res.results[page]
+    setdata(tempdata1);
     setshow(true)
-    console.log(tempdata)
+    console.log(tempdata1)
 
 }
     return (
