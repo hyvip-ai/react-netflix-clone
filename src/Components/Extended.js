@@ -5,7 +5,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import Spinner from './Spinner'
 import Topmovies from './Topmovies'
 import Goback from './Goback'
-function Extended({genre,clic}) {
+function Extended({genre,clic,name}) {
     
    // console.log(genre)
 
@@ -86,7 +86,7 @@ function Extended({genre,clic}) {
               <b>Yay! You have seen it all</b>
             </p>
           } >
-            <Topmovies movielist={movies}/>
+            <Topmovies namefun={name} movielist={movies}/>
         </InfiniteScroll>
          </div>
 

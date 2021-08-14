@@ -1,11 +1,11 @@
 import React from 'react'
 import Topmovie from './Topmovie'
 
-function Amaz({movielist}) {
+function Amaz({namefun,movielist}) {
     return (
         
         movielist.map(item=>{ 
-            return <Topmovie movie={item} key={item.id}/>
+            return <Topmovie func={namefun} movie={item} key={item.id}/>
         })
     )
 }

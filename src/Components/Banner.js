@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from 'react'
 import requests from "../request";
 
-function Banner() {
+function Banner({func}) {
 const api_key = "b988754cffa2df249c974ac7b1d714e5"
     function getRandomArbitrary(min, max) {
     return Math.floor(Math.random() * (max - min) + min);
@@ -37,7 +37,7 @@ const api_key = "b988754cffa2df249c974ac7b1d714e5"
             <h1>{data.name}</h1>
         </div>
         <div className="buttons">
-        <button>Play Trailer</button>
+        <button onClick={()=>{func(data.name)}}>Play Trailer</button>
         <button>Watch Series</button>
         </div>
         <div className="subtitle"><h3> {data.overview}</h3>

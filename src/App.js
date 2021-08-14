@@ -19,9 +19,12 @@ import Romtv from "./Components/Romtv";
 import Banner from "./Components/Banner"
 import Button from "./Components/Button"
 import Extended from "./Components/Extended"
+import Trailer from "./Components/Trailer"
 
 function App() {
 const [show, setshow] = useState(false)
+const [showtrailer, setshowtrailer] = useState(false)
+const [name, setname] = useState("")
 const [showmore, setshowmore] = useState(false)
 const [showmoreurl, setshowmoreurl] = useState(false)
 const [toprate, settoprate] = useState([]) 
@@ -210,21 +213,25 @@ function hidemoredara(){
    setshow(true);
 setshowmore(false);
 }
-
+function getmoviename(data){
+  setname(data)
+    console.log(data)
+    setshowtrailer(true)
+}
   return (
     <div className="App">
       
       {!show && !showmore? <Spinner/> : null}
      
       {show&& !showmore?
-      <Banner/>
+      <Banner func={getmoviename}/>
      :null}
 
       {show?
       <div className="trending">
         <h1>Top Rated Movies</h1>
       <div className="trendlist">
-      <Topmovies movielist={toprate}/>
+      <Topmovies namefun={getmoviename} movielist={toprate}/>
       <Button func={showmoredata} data="top_rated"/>
       </div>
      
@@ -233,7 +240,7 @@ setshowmore(false);
       <div className="trending">
         <h1>Action Movies</h1>
       <div className="trendlist">
-      <Action movielist={actionrate}/>
+      <Action namefun={getmoviename} movielist={actionrate}/>
       <Button func={showmoredata} data="action_movies"/>
       </div>
      
@@ -242,7 +249,7 @@ setshowmore(false);
       <div className="trending">
         <h1>Thriller Movies</h1>
       <div className="trendlist">
-      <Thriller movielist={thrillrate}/>
+      <Thriller namefun={getmoviename} movielist={thrillrate}/>
       <Button func={showmoredata} data="thriller_movies"/>
       </div>
      
@@ -251,7 +258,7 @@ setshowmore(false);
       <div className="trending">
         <h1>Trending This Week</h1>
       <div className="trendlist">
-      <Trendwe movielist={trendwerate}/>
+      <Trendwe namefun={getmoviename} movielist={trendwerate}/>
       <Button func={showmoredata} data="trending_week"/>
       </div>
      
@@ -261,7 +268,7 @@ setshowmore(false);
       <div className="trending">
         <h1>Trending Now</h1>
       <div className="trendlist">
-      <Trendday movielist={trenddarate}/>
+      <Trendday namefun={getmoviename} movielist={trenddarate}/>
       <Button func={showmoredata} data="trending_day"/>
       </div>
      
@@ -270,7 +277,7 @@ setshowmore(false);
       <div className="trending">
         <h1>Romantic Movies</h1>
       <div className="trendlist">
-      <Roman movielist={romanrate}/>
+      <Roman namefun={getmoviename} movielist={romanrate}/>
       <Button func={showmoredata} data="romantic_movies"/>
       </div>
      
@@ -279,7 +286,7 @@ setshowmore(false);
       <div className="trending">
         <h1>Netflix Originals Shows</h1>
       <div className="trendlist">
-      <Netor movielist={netorrate}/>
+      <Netor namefun={getmoviename} movielist={netorrate}/>
       <Button func={showmoredata} data="netflix_series"/>
       </div>
      
@@ -288,7 +295,7 @@ setshowmore(false);
       <div className="trending">
         <h1>Amazon Prime Originals Shows</h1>
       <div className="trendlist">
-      <Amaz movielist={amzrate}/>
+      <Amaz namefun={getmoviename} movielist={amzrate}/>
       <Button func={showmoredata} data="amazon_series"/>
       </div>
      
@@ -297,7 +304,7 @@ setshowmore(false);
       <div className="trending">
         <h1>Documentries</h1>
       <div className="trendlist">
-      <Documen movielist={docurate}/>
+      <Documen namefun={getmoviename} movielist={docurate}/>
       <Button func={showmoredata} data="documentries_movies"/>
       </div>
      
@@ -306,7 +313,7 @@ setshowmore(false);
       <div className="trending">
         <h1>Mysteries</h1>
       <div className="trendlist">
-      <Myst movielist={mystrate}/>
+      <Myst namefun={getmoviename} movielist={mystrate}/>
       <Button func={showmoredata} data="mystery_movies"/>
       </div>
      
@@ -315,7 +322,7 @@ setshowmore(false);
       <div className="trending">
         <h1>Science Fiction Movies</h1>
       <div className="trendlist">
-      <Sci movielist={scirate}/>
+      <Sci namefun={getmoviename} movielist={scirate}/>
       <Button func={showmoredata} data="scifi_movies"/>
       </div>
      
@@ -324,7 +331,7 @@ setshowmore(false);
       <div className="trending">
         <h1>Thriller Tv Shows</h1>
       <div className="trendlist">
-      <Scitv movielist={scifitvrate}/>
+      <Scitv namefun={getmoviename} movielist={scifitvrate}/>
       <Button func={showmoredata} data="thriller_tv"/>
       </div>
      
@@ -333,7 +340,7 @@ setshowmore(false);
       <div className="trending">
         <h1>Mystery Tv Shows</h1>
       <div className="trendlist">
-      <Mysttv movielist={mysttvrate}/>
+      <Mysttv namefun={getmoviename} movielist={mysttvrate}/>
       <Button func={showmoredata} data="mystery_tv"/>
       </div>
      
@@ -342,7 +349,7 @@ setshowmore(false);
       <div className="trending">
         <h1>Documentry Tv Shows</h1>
       <div className="trendlist">
-      <Docttv movielist={doctvrate}/>
+      <Docttv namefun={getmoviename} movielist={doctvrate}/>
       <Button func={showmoredata} data="documentries_tv"/>
       </div>
      
@@ -352,14 +359,14 @@ setshowmore(false);
       <div className="trending">
         <h1>Romantic Tv Shows</h1>
       <div className="trendlist">
-      <Romtv movielist={romtvrate}/>
+      <Romtv namefun={getmoviename} movielist={romtvrate}/>
       <Button func={showmoredata} data="romantic_tv"/>
       </div>
      
       </div>:null}
 
-       {!show && showmore? <Extended clic={hidemoredara} genre={showmoreurl}/> : null}
-     
+       {!show && showmore? <Extended name={getmoviename} clic={hidemoredara} genre={showmoreurl}/> : null}
+      {showtrailer?<Trailer moviename={name} close={setshowtrailer}/>:null}
     </div>
   );
 }

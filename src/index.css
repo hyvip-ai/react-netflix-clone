@@ -7,6 +7,41 @@
   box-sizing: border-box;
   color: white;
 }
+.close button{
+height: 60px;
+width: 60px;
+border-radius: 50%;
+background-color: white;
+color: black;
+font-weight: bold;
+position: absolute;
+right: -5%;
+top: -8%;
+font-size: 28px;
+color: steelblue;
+font-weight: bolder;
+border: none;
+outline: none;
+cursor: pointer;
+transition: all 0.5s;
+}
+.close button:active{
+  transform: scale(0.90);
+}
+.rating{
+display: flex;
+align-items: center;
+position: absolute;
+bottom: 56%;
+}
+.rating .imdb{
+  width: 12px;
+  margin-right: 10px;
+}
+.name{
+  position: absolute;
+  bottom: 77%;
+}
 .goback{
   position: fixed;
   top: 25px;
@@ -87,7 +122,9 @@ width: 40%;
 .bannerimage img{
 height: 100%;
 width: 100%;
-object-fit: cover;}
+object-fit: cover;
+object-position: top;
+}
 .head{
 background-color: white;
 height: 60px;
@@ -322,6 +359,12 @@ align-items: center;
   100% {
     transform: rotate(360deg);
   }
+}
+.trailer{
+  position: fixed;
+  bottom: 5%;
+  right: 5%;
+  z-index: 10;
 }
 @media(max-width: 690px){
   .description{
