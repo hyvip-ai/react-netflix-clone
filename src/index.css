@@ -361,6 +361,7 @@ align-items: center;
   }
 }
 .trailer{
+
   position: fixed;
   bottom: 5%;
   right: 5%;
@@ -376,4 +377,12 @@ align-items: center;
   }
     .description h1{
       text-align: center;}
+}
+
+@media(max-width: 650px){
+  .close button{
+    height: 40px;
+    width: 40px;
+    font-size: 20px;
+  }
 }

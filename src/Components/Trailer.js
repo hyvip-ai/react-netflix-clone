@@ -5,8 +5,16 @@ import Trailerclose from './Trailerclose'
 function Trailer({moviename,close}){
   
 	const opts = {
-      height: '350',
-      width: '550',
+      height: '390',
+      width: '640',
+      playerVars: {
+        
+        autoplay: 1,
+      },
+    };
+      const opts1 = {
+      height: '210',
+      width: '350',
       playerVars: {
         
         autoplay: 1,
@@ -18,8 +26,9 @@ const [trailerid,settrailerid ] = useState('')
      movieTrailer(moviename).then((url)=>{
       console.log(url)
       if(url==null){
-        alert("Unfortunately No Trailer Found")
       close(false)
+
+        alert("Unfortunately No Trailer Found")
         
       }
       const urlParser = new URLSearchParams(new URL(url).search);
@@ -32,7 +41,7 @@ const [trailerid,settrailerid ] = useState('')
 	return(
 		<div className="trailer">
     
-    <YouTube videoId={trailerid} opts={opts} />
+    <YouTube videoId={trailerid} opts={window.innerWidth>650?opts:opts1} />
     <Trailerclose clk={close}/>
     </div>
 	)
