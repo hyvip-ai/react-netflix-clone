@@ -12,13 +12,13 @@ const api_key = "b988754cffa2df249c974ac7b1d714e5"
     useEffect(()=>{
         var page = getRandomArbitrary(1,20)
         console.log(page)
-    var url = requests.baseUrl+`/discover/tv?api_key=${api_key}&page=${page}&with_networks=213`
-   netor(url,page);
+    var url = requests.baseUrl+`/discover/tv?api_key=${api_key}&page=${page}&with_networks=213`;
+     netor(url,page);
     },[])
     async function netor(url,page){
   console.log("asche")
     var tempdata = await fetch(url);
-    var res = await data.json();
+    var res = await tempdata.json();
     var tempdata1 = res.results[page]
     setdata(tempdata1);
     setshow(true)
