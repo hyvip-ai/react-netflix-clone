@@ -17,7 +17,8 @@ function Extended({genre,clic}) {
    const [hasmore,sethasmore] = useState(true)
    useEffect(()=>{
       console.log("effect")
-      fetchdata()
+      fetchdata();
+       // eslint-disable-next-line
    },[])
    async function fetchdata(){
       // console.log("dhukche "+page)
