@@ -7,7 +7,7 @@ const requests={
     search_movie:`/search/movie?api_key=${api_key}&language=en-US&query=suicide&page=1`,
     search_all:`/search/multi?api_key=${api_key}&query=wandavision&page=1`,
     search_tv:`/tv?api_key=${api_key}&page=1&query=banshee&include_adult=true`,
-    top_rated:`/movie/top_rated?api_key=${api_key}&page=1`,
+    top_rated:`/movie/top_rated?api_key=${api_key}`,
     action_movies:`/discover/movie?api_key=${api_key}&page=1&with_genres=28`,
     thriller_movies:`/discover/movie?api_key=${api_key}&page=1&with_genres=53`,
     mystery_movies:`/discover/movie?api_key=${api_key}&page=1&with_genres=9648`,

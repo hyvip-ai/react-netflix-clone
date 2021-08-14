@@ -7,6 +7,25 @@
   box-sizing: border-box;
   color: white;
 }
+.goback{
+  position: fixed;
+  top: 25px;
+  left: 25px;
+  z-index: 5;
+  transform: rotate(180deg);
+}
+.expandscroll{
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+
+}
+.infinite-scroll-component {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
 .banner{
   height: 450px;
   width: 100%;
@@ -36,7 +55,8 @@ text-align: left;}
 .description{
 position: absolute;
 z-index: 5;
-bottom: 5%;
+bottom: 50%;
+transform: translateY(50%);
 left: 8%;
 width: 40%;
 }
@@ -50,7 +70,7 @@ width: 40%;
   display: block;
   height: 100%;
   width: 40%;
-  background-color: rgba(14,14,14,0.6);
+  background-color: rgba(255,0,0,0.6);
   border: none;
   outline: none;
   cursor: pointer;
@@ -58,7 +78,7 @@ width: 40%;
   transition: all 0.5s;
 }
 .description .buttons button:hover{
-  background-color: rgba(14,14,14);
+  background-color: rgba(255,0,0);
 
 }
 .description .buttons button:active{
@@ -117,6 +137,7 @@ height: 80%;
 .trendlist{
 display: flex;
   overflow: auto;
+  align-items: center;
 }
 .trendlist::-webkit-scrollbar{
 display: none;
@@ -141,7 +162,7 @@ h3{
   margin: 20px auto;
   text-align-last: left;
   font-family: 'poppins';
-  font-size: 15px;
+  font-size: 12px;
 }
 .outer{
 display: flex;
@@ -271,7 +292,29 @@ align-items: center;
   transition:all 0.3s;
   font-weight:bold;
 }
+.loadmore{
 
+  margin-right: 20px;
+  }
+.loadmore button{
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 1);
+  color: steelblue;
+  outline: none;
+  font-family: 'Raleway';
+  font-weight: bolder;
+  cursor: pointer;
+  transition: all 0.5s;
+  border: none;
+  font-size: 28px;
+
+}
+.loadmore button:active{
+    transform: scale(0.90);
+
+}
 @keyframes lds-roller {
   0% {
     transform: rotate(0deg);
@@ -282,10 +325,12 @@ align-items: center;
 }
 @media(max-width: 690px){
   .description{
-    width: 100%;
-    margin-right: 20px;
-    padding-right: 45px;
-    text-align: justify;}
+    width: 80%;
+    left: 50%;
+    bottom: 50%;
+    transform: translate(-50%,50%);
+    text-align: justify;
+  }
     .description h1{
       text-align: center;}
 }

@@ -17,8 +17,13 @@ import Mysttv from "./Components/Mysttv";
 import Docttv from "./Components/Docttv";
 import Romtv from "./Components/Romtv";
 import Banner from "./Components/Banner"
+import Button from "./Components/Button"
+import Extended from "./Components/Extended"
+
 function App() {
 const [show, setshow] = useState(false)
+const [showmore, setshowmore] = useState(false)
+const [showmoreurl, setshowmoreurl] = useState(false)
 const [toprate, settoprate] = useState([]) 
 const [actionrate, setactionrate] = useState([]) 
 const [thrillrate, setthrillrate] = useState([]) 
@@ -194,14 +199,24 @@ async function romantv(url){
   },1200)
 }
 
+function showmoredata(data){
+    console.log(data)
+  setshowmoreurl(data);
+  setshow(false);
+setshowmore(true);
+}
 
+function hidemoredara(){
+   setshow(true);
+setshowmore(false);
+}
 
   return (
     <div className="App">
       
-      {!show? <Spinner/> : null}
+      {!show && !showmore? <Spinner/> : null}
      
-      {show?
+      {show&& !showmore?
       <Banner/>
      :null}
 
@@ -210,6 +225,7 @@ async function romantv(url){
         <h1>Top Rated Movies</h1>
       <div className="trendlist">
       <Topmovies movielist={toprate}/>
+      <Button func={showmoredata} data="top_rated"/>
       </div>
      
       </div>:null}
@@ -218,6 +234,7 @@ async function romantv(url){
         <h1>Action Movies</h1>
       <div className="trendlist">
       <Action movielist={actionrate}/>
+      <Button func={showmoredata} data="action_movies"/>
       </div>
      
       </div>:null}
@@ -226,6 +243,7 @@ async function romantv(url){
         <h1>Thriller Movies</h1>
       <div className="trendlist">
       <Thriller movielist={thrillrate}/>
+      <Button func={showmoredata} data="thriller_movies"/>
       </div>
      
       </div>:null}
@@ -234,6 +252,7 @@ async function romantv(url){
         <h1>Trending This Week</h1>
       <div className="trendlist">
       <Trendwe movielist={trendwerate}/>
+      <Button func={showmoredata} data="trending_week"/>
       </div>
      
       </div>:null}
@@ -243,6 +262,7 @@ async function romantv(url){
         <h1>Trending Now</h1>
       <div className="trendlist">
       <Trendday movielist={trenddarate}/>
+      <Button func={showmoredata} data="trending_day"/>
       </div>
      
       </div>:null}
@@ -251,6 +271,7 @@ async function romantv(url){
         <h1>Romantic Movies</h1>
       <div className="trendlist">
       <Roman movielist={romanrate}/>
+      <Button func={showmoredata} data="romantic_movies"/>
       </div>
      
       </div>:null}
@@ -259,6 +280,7 @@ async function romantv(url){
         <h1>Netflix Originals Shows</h1>
       <div className="trendlist">
       <Netor movielist={netorrate}/>
+      <Button func={showmoredata} data="netflix_series"/>
       </div>
      
       </div>:null}
@@ -267,6 +289,7 @@ async function romantv(url){
         <h1>Amazon Prime Originals Shows</h1>
       <div className="trendlist">
       <Amaz movielist={amzrate}/>
+      <Button func={showmoredata} data="amazon_series"/>
       </div>
      
       </div>:null}
@@ -275,6 +298,7 @@ async function romantv(url){
         <h1>Documentries</h1>
       <div className="trendlist">
       <Documen movielist={docurate}/>
+      <Button func={showmoredata} data="documentries_movies"/>
       </div>
      
       </div>:null}
@@ -283,6 +307,7 @@ async function romantv(url){
         <h1>Mysteries</h1>
       <div className="trendlist">
       <Myst movielist={mystrate}/>
+      <Button func={showmoredata} data="mystery_movies"/>
       </div>
      
       </div>:null}
@@ -291,6 +316,7 @@ async function romantv(url){
         <h1>Science Fiction Movies</h1>
       <div className="trendlist">
       <Sci movielist={scirate}/>
+      <Button func={showmoredata} data="scifi_movies"/>
       </div>
      
       </div>:null}
@@ -299,6 +325,7 @@ async function romantv(url){
         <h1>Thriller Tv Shows</h1>
       <div className="trendlist">
       <Scitv movielist={scifitvrate}/>
+      <Button func={showmoredata} data="thriller_tv"/>
       </div>
      
       </div>:null}
@@ -307,6 +334,7 @@ async function romantv(url){
         <h1>Mystery Tv Shows</h1>
       <div className="trendlist">
       <Mysttv movielist={mysttvrate}/>
+      <Button func={showmoredata} data="mystery_tv"/>
       </div>
      
       </div>:null}
@@ -315,6 +343,7 @@ async function romantv(url){
         <h1>Documentry Tv Shows</h1>
       <div className="trendlist">
       <Docttv movielist={doctvrate}/>
+      <Button func={showmoredata} data="documentries_tv"/>
       </div>
      
       </div>:null}
@@ -324,11 +353,12 @@ async function romantv(url){
         <h1>Romantic Tv Shows</h1>
       <div className="trendlist">
       <Romtv movielist={romtvrate}/>
+      <Button func={showmoredata} data="romantic_tv"/>
       </div>
      
       </div>:null}
 
-       
+       {!show && showmore? <Extended clic={hidemoredara} genre={showmoreurl}/> : null}
      
     </div>
   );
