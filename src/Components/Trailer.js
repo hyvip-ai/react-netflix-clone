@@ -14,7 +14,7 @@ function Trailer({moviename,close}){
     };
       const opts1 = {
       height: '210',
-      width: '350',
+      width: '320',
       playerVars: {
         
         autoplay: 1,
