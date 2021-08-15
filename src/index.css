@@ -293,8 +293,8 @@ align-items: center;
 }
 
 .moviecard{
-  width: 140px;
-  height: 210px;
+  width: 225px;
+  height: 338px;
   /* border:1px solid white; */
   border-radius: 10px;
   overflow: hidden;
