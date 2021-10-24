@@ -3,14 +3,14 @@ import '../index.css'
 import requests from "../request";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Spinner from './Spinner'
-import Topmovies from './Topmovies'
 import Goback from './Goback'
+import MovieList from './MovieList';
 function Extended({genre,clic,name}) {
     
    // console.log(genre)
 
   
-   var url = requests.baseUrl +requests[genre]
+   var url = requests.baseUrl +requests[genre].url
    const [movies,setmovies] = useState([])
    const [page,setpage] = useState(1)
    const [max,setmax] = useState(0)
@@ -80,13 +80,13 @@ function Extended({genre,clic,name}) {
           dataLength={movies.length}
           next={fetchmoredata}
           hasMore={hasmore}
-          loader={<h4 style={{color:"white",fontFamily:"cursive"}}>Loading Please Wait...</h4>}
+          
            endMessage={
             <p style={{ textAlign: "center" }}>
               <b>Yay! You have seen it all</b>
             </p>
           } >
-            <Topmovies namefun={name} movielist={movies}/>
+            <MovieList namefun={name} movielist={movies}/>
         </InfiniteScroll>
          </div>
 
