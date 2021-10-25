@@ -1,8 +1,9 @@
+import axios from 'axios';
 import React,{useState,useEffect} from 'react'
-import requests from "../request";
+import {api_key} from "../request";
 
 function Banner({func}) {
-const api_key = "b988754cffa2df249c974ac7b1d714e5"
+
     function getRandomArbitrary(min, max) {
     return Math.floor(Math.random() * (max - min) + min);
 }
@@ -12,18 +13,23 @@ const api_key = "b988754cffa2df249c974ac7b1d714e5"
     useEffect(()=>{
         var page = getRandomArbitrary(1,20)
         var pic = getRandomArbitrary(1,20)
-        console.log(page)
-    var url = requests.baseUrl+`/discover/tv?api_key=${api_key}&page=${page}&with_networks=213`;
-     netor(url,page,pic);
+        // console.log(page)
+    var url = `/discover/tv?api_key=${api_key}&page=${page}&with_networks=213`;
+     netor(url,pic);
     },[])
-    async function netor(url,page,pic){
-  console.log("asche")
-    var tempdata = await fetch(url);
-    var res = await tempdata.json();
-    var tempdata1 = res.results[pic]
-    setdata(tempdata1);
-    setshow(true)
-    console.log(tempdata1)
+    async function netor(url,pic){
+//   console.log("asche")
+  axios.defaults.baseURL="https://api.themoviedb.org/3"
+
+    axios.get(url).then(res=>{
+        // console.log(res.data.results)
+        var tempdata1 = res.data.results[pic]
+        console.log(tempdata1)
+        setdata(tempdata1);
+        setshow(true)
+        console.log(tempdata1)
+    })
+ 
 
 }
     return (
@@ -31,7 +37,7 @@ const api_key = "b988754cffa2df249c974ac7b1d714e5"
        {show ? 
         <div className="innerbanner">
         <div className="layer"></div>
-        <div className="bannerimage"><img src={requests.images+data.backdrop_path} alt="show"/></div>
+        <div className="bannerimage"><img src={'https://image.tmdb.org/t/p/w500/'+data.backdrop_path} alt="show"/></div>
         <div className="description">
         <div className="title">
             <h1>{data.name}</h1>

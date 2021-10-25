@@ -50,16 +50,16 @@ bottom: 56%;
   transform: rotate(180deg);
 }
 .expandscroll{
-  display: flex;
+
   width: 100%;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
+ 
 
 }
 .infinite-scroll-component {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
+  overflow: visible!important;
 }
 .banner{
   height: 450px;
@@ -175,6 +175,13 @@ height: 80%;
 display: flex;
   overflow: auto;
   align-items: center;
+}
+.expnadedtrendlist{
+  display: flex;
+  overflow: auto;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 .trendlist::-webkit-scrollbar{
 display: none;
@@ -352,6 +359,42 @@ align-items: center;
     transform: scale(0.90);
 
 }
+.lds-ring {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-ring div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border: 8px solid #fff;
+  border-radius: 50%;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: #fff transparent transparent transparent;
+}
+.lds-ring div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+.lds-ring div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+.lds-ring div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 @keyframes lds-roller {
   0% {
     transform: rotate(0deg);

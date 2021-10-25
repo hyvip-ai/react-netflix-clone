@@ -1,11 +1,11 @@
 import { useState } from "react";
-import requests from "./request";
+import {requests} from "./request";
 // import Spinner from "./Components/Spinner";
 import Banner from "./Components/Banner"
 import Extended from "./Components/Extended"
 import Trailer from "./Components/Trailer"
 import Row from "./Shared-Folder/Row";
-
+import uuid from 'uuid/dist/v4'
 function App() {
 // const [show, setshow] = useState(false)
 const [showtrailer, setshowtrailer] = useState(false)
@@ -38,8 +38,8 @@ function getmoviename(data){
     
 
     {!showmore?   Object.keys(requests).map((item,i)=>{
-        console.log(item)
-       return item === "baseUrl" || item === "images"?null:<Row genre={item} mainUrl={item} nameFun={getmoviename} showData={showmoredata}/>
+        // console.log(item)
+       return  item === "images"?null:<Row key={uuid()} genre={item} mainUrl={item} nameFun={getmoviename} showData={showmoredata}/>
       }):null}
             
      
