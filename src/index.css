@@ -8,22 +8,20 @@
   color: white;
 }
 .close button{
-height: 60px;
-width: 60px;
-border-radius: 50%;
-background-color: white;
-color: black;
-font-weight: bold;
-position: absolute;
-right: -5%;
-top: -8%;
-font-size: 28px;
-color: steelblue;
-font-weight: bolder;
-border: none;
-outline: none;
-cursor: pointer;
-transition: all 0.5s;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  font-size: 28px;
+  color: steelblue;
+  font-weight: bolder;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.5s;
 }
 .close button:active{
   transform: scale(0.90);
@@ -353,7 +351,6 @@ align-items: center;
   transition: all 0.5s;
   border: none;
   font-size: 28px;
-
 }
 .loadmore button:active{
     transform: scale(0.90);
@@ -404,11 +401,9 @@ align-items: center;
   }
 }
 .trailer{
-
-  position: fixed;
-  bottom: 5%;
-  right: 5%;
-  z-index: 10;
+  width: 80%;
+  height: 600px;
+  margin: 20px auto;
 }
 @media(max-width: 690px){
   .description{

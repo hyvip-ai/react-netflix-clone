@@ -1,6 +1,8 @@
 import React from 'react'
 import '../index.css'
+import { useHistory } from 'react-router'
 function MovieCard({ movie,func}) {
+    const history = useHistory()
     var id = movie.id + Math.random()
     function sidebar(){
           document.getElementById(`mcard${id}`).style.transform="scale(1.1)"
@@ -11,11 +13,14 @@ function MovieCard({ movie,func}) {
       document.getElementById(`mcard${id}`).style.transform="scale(1)"
           document.getElementById(`mcard${id}`).style.boxShadow="none"
   }
+  function handleTrailer(){
+      history.push(`/trailer/${movie.title || movie.original_name}`)
+  }
   
       return ( 
   
               
-             <div onClick={()=>func(movie.title?movie.title:movie.original_name)} id={"mcard"+ id} className="main" onMouseOver={sidebar} onMouseLeave={toogle}>
+             <div onClick={handleTrailer} id={"mcard"+ id} className="main" onMouseOver={sidebar} onMouseLeave={toogle}>
               <div className="moviecard">
                   <img src={movie.poster_path?`https://image.tmdb.org/t/p/w500/${movie.poster_path}`:`https://th.bing.com/th/id/OIP.1eLP0aOUDUOgiBv7z17HCQHaE8?pid=ImgDet&rs=1`} alt="" />
                   

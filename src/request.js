@@ -14,7 +14,6 @@ const requests={
     scifi_movies:{url:`/discover/movie?api_key=${api_key}&page=1&with_genres=878`,heading:"Top Science fiction Movies"},
     netflix_series:{url:`/discover/tv?api_key=${api_key}&with_networks=213`,heading:"Top Netflix Originals"},
     amazon_series:{url:`/discover/tv?api_key=${api_key}&with_networks=1024`,heading:"Top Amaxon Prime Originals"},
-    action_tv:{url:`/discover/tv?api_key=${api_key}&page=1&with_genres=28`,heading:"Top Action Series"},
     thriller_tv:{url:`/discover/tv?api_key=${api_key}&page=1&with_genres=53`,heading:"Top Thriller Series"},
     mystery_tv:{url:`/discover/tv?api_key=${api_key}&page=1&with_genres=9648`,heading:"Top Mystery Series"},
     romantic_tv:{url:`/discover/tv?api_key=${api_key}&page=1&with_genres=10749`,heading:"Top Romantic Series"},

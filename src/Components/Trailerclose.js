@@ -1,10 +1,12 @@
 import React from 'react'
+import { useHistory } from 'react-router'
 import '../index.css'
 
-function Trailerclose({clk}) {
+function Trailerclose() {
+   const history = useHistory()
    function hidethis(){
-         clk(false)
-      }
+         history.push("/")
+   }
     return (
         
        <div className="close">

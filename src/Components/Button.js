@@ -1,12 +1,14 @@
 import React from 'react'
 import '../index.css'
+import {Link} from "react-router-dom"
+function Button({data}) {
 
-function Button({data,func}) {
     return (
-        
-       <div className="loadmore">
-        <button onClick={()=>{func(data)}}> &#10140;</button>
-       </div>
+        <Link to={`/pages/${data}`}> 
+            <div className="loadmore">
+                <button>&#10140;</button>
+            </div>
+       </Link>
     )
 }
 

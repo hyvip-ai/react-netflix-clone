@@ -1,11 +1,15 @@
 import React from 'react'
+import { useHistory } from 'react-router'
 import '../index.css'
 
-function Goback({back}) {
+function Goback() {
+    const history = useHistory()
+    const handleClick = () =>{
+        history.push("/")
+    }
     return (
-        
        <div className="goback loadmore">
-        <button onClick={back}> &#10140;</button>
+        <button onClick={handleClick}> &#10140;</button>
        </div>
     )
 }

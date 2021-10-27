@@ -4,7 +4,7 @@ import MovieCard from './MovieCard'
 function MovieList({movielist,namefun}) {
     return (
         movielist.map((item,index)=>{ 
-            return <MovieCard movie={item} func={namefun} key={uuid()}/>
+            return <MovieCard movie={item} key={uuid()}/>
         })
     )
 }
