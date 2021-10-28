@@ -4,7 +4,7 @@ import {requests} from "../request";
 import Row from './Row';
 import uuid from "uuid/dist/v4"
 import Spinner from '../Components/Spinner';
-function Home({getmoviename}) {
+function Home() {
     const [showData, setshowData] = useState(false)
     setTimeout(()=>{
         setshowData(true)
