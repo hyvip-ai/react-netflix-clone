@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 import Banner from '../Components/Banner'
 import {requests} from "../request";
-import Row from './Row';
+import Row from '../Shared-Folder/Row';
 import uuid from "uuid/dist/v4"
 import Spinner from '../Components/Spinner';
 function Home() {
