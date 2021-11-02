@@ -3,9 +3,9 @@ import { useParams } from "react-router";
 import "../index.css";
 import { requests } from "../request";
 import InfiniteScroll from "react-infinite-scroll-component";
-import Spinner from "./Spinner";
-import Goback from "./Goback";
-import MovieList from "./MovieList";
+import Spinner from "../Components/Spinner";
+import Goback from "../Components/Goback";
+import MovieList from "../Components/MovieList";
 import axios from "axios";
 function Extended() {
   const {genre} = useParams();

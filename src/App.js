@@ -1,7 +1,7 @@
-import Extended from "./Components/Extended";
-import Trailer from "./Components/Trailer"
+import Extended from "./Pages/Extended";
+import Trailer from "./Pages/Trailer"
 import { Switch, BrowserRouter as Router, Route } from "react-router-dom";
-import Home from "./Shared-Folder/Home";
+import Home from "./Pages/Home";
 function App() {
   return (
     <Router>

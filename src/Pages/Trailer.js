@@ -2,18 +2,20 @@ import React,{useState,useEffect} from 'react';
 
 import { useHistory, useParams } from 'react-router';
 import movieTrailer from 'movie-trailer'
-import Trailerclose from './Trailerclose'
+import Trailerclose from '../Components/Trailerclose'
 function Trailer(){
   const history = useHistory()
   const {trailerName} = useParams()
   console.log(trailerName)
   const [trailerUrl,settrailerUrl ] = useState('')
   useEffect(()=>{
+    console.log("useEffect a Asche")
       movieTrailer(trailerName).then((url)=>{
+      
       console.log(url)
       if(url==null){
         alert("Unfortunately No Trailer Found")
-        history.push("/");
+        // history.push("/");
       }
       let myurl = new URL(url);
       const urlParser = new URLSearchParams(myurl.search);
@@ -21,8 +23,8 @@ function Trailer(){
       var newUrl = new URL(`/embed/${id}`,"https://www.youtube.com/")
       settrailerUrl(newUrl.href)
 
-    }).catch((err)=>{console.log("Error Occured: ",err)});
-  })
+    });
+  },[history,trailerName])
 	return(
 		<div className="trailer">
     
