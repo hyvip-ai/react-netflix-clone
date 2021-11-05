@@ -20,7 +20,7 @@ function MovieCard({ movie,func}) {
       return ( 
   
               
-             <div onClick={handleTrailer} id={"mcard"+ id} className="main" onMouseOver={sidebar} onMouseLeave={toogle}>
+             <div onClick={handleTrailer} id={"mcard"+ id} className="main" onMouseOver={sidebar} onMouseLeave={toogle} draggable={false}>
               <div className="moviecard">
                   <img src={movie.poster_path?`https://image.tmdb.org/t/p/w500/${movie.poster_path}`:`https://th.bing.com/th/id/OIP.1eLP0aOUDUOgiBv7z17HCQHaE8?pid=ImgDet&rs=1`} alt="" />
                   
