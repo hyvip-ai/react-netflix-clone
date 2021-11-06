@@ -56,12 +56,7 @@ bottom: 56%;
  
 
 }
-.infinite-scroll-component {
-  display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-  overflow: visible!important;
-}
+
 .banner{
   height: 450px;
   width: 100%;
@@ -164,11 +159,10 @@ height: 80%;
   border: 1px solid black;
   border-left: none;
 }
-.scroll-buttons{
-  position: absolute;
-  top: 0;
-  left: 0;
+.scroll-row{
+  position: relative;
 }
+
  body{
   background-color: black;
   width: 100%;
@@ -182,6 +176,9 @@ height: 80%;
   display: flex;
   overflow: scroll;
   align-items: center;
+  position: relative;
+  transition: all 0.5s;
+  padding: 0px 100px;
 }
 
 .expnadedtrendlist{
@@ -428,6 +425,29 @@ align-items: center;
       text-align: center;}
 }
 
+.row-buttons{
+  position: absolute;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+
+  top: 56%;
+  z-index: 5;
+  transform: translateY(-50%);
+  left: 0;
+}
+.row-buttons button{
+  display: block;
+  height: 75px;
+  width: 75px;
+  color: black;
+  border-radius: 50%;
+  font-size: 50px;
+  border: none;
+}
+.row-buttons button:active{
+  transform: scale(0.95);
+}
 @media(max-width: 650px){
   .close button{
     height: 40px;

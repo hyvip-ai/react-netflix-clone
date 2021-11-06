@@ -13,15 +13,18 @@ function Trailer(){
       movieTrailer(trailerName).then((url)=>{
       
       console.log(url)
-      if(url==null){
+      if(!url){
         alert("Unfortunately No Trailer Found")
-        // history.push("/");
+        history.push("/");
+        return
       }
+
       let myurl = new URL(url);
       const urlParser = new URLSearchParams(myurl.search);
       var id = urlParser.get('v')
       var newUrl = new URL(`/embed/${id}`,"https://www.youtube.com/")
       settrailerUrl(newUrl.href)
+     
 
     });
   },[history,trailerName])
