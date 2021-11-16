@@ -449,6 +449,7 @@ align-items: center;
   border-radius: 50%;
   font-size: 50px;
   border: none;
+  pointer-events: all;
 }
 .row-buttons button:active{
   transform: scale(0.95);
